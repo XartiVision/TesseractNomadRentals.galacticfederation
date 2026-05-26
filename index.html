@@ -9,91 +9,137 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
         
-        :root {
-            --space-black: #0a0a1f;
-        }
+        body { font-family: 'VT323', monospace; }
+        .retro-title { font-family: 'Press Start 2P', system-ui; }
         
-        body {
-            font-family: 'VT323', monospace;
-        }
-        
-        .retro-title {
-            font-family: 'Press Start 2P', system-ui;
-        }
-
         .star-bg {
-            background-image: 
-                radial-gradient(circle at 25% 30%, rgba(255,255,255,0.9) 1px, transparent 0),
-                radial-gradient(circle at 75% 60%, rgba(255,255,255,0.8) 1px, transparent 0),
-                radial-gradient(circle at 40% 80%, rgba(255,255,255,0.7) 2px, transparent 0),
-                radial-gradient(circle at 80% 40%, rgba(255,255,255,0.9) 1px, transparent 0);
-            background-size: 400px 400px;
-            animation: stars 25s linear infinite;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px);
+            background-size: 80px 80px;
+            animation: stars 40s linear infinite;
         }
-
-        @keyframes stars {
-            0% { background-position: 0 0; }
-            100% { background-position: -400px -400px; }
-        }
-
+        @keyframes stars { from {background-position:0 0;} to {background-position: -1000px -1000px;} }
+        
         .neon-text {
-            text-shadow: 
-                0 0 5px #22ffcc,
-                0 0 10px #22ffcc,
-                0 0 20px #ff22cc;
-        }
-
-        .listing-card {
-            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            text-shadow: 0 0 10px #22ffcc, 0 0 20px #ff22cc;
         }
         
-        .listing-card:hover {
-            transform: translateY(-15px) rotate(2deg);
-            box-shadow: 0 0 30px rgba(34, 255, 204, 0.5);
-        }
-
-        .portal {
-            animation: portalPulse 4s ease-in-out infinite;
-        }
-
-        @keyframes portalPulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(255, 34, 204, 0.4); }
-            50% { box-shadow: 0 0 0 25px rgba(255, 34, 204, 0); }
-        }
+        .listing-card:hover { transform: translateY(-12px) rotate(1deg); }
     </style>
 </head>
-<body class="bg-[#0a0a1f] text-[#22ffcc] min-h-screen overflow-x-hidden">
-    <!-- NAV -->
-    <nav class="border-b border-[#ff22cc] bg-black/80 backdrop-blur-md fixed w-full z-50">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-gradient-to-br from-[#22ffcc] to-[#ff22cc] rounded-full flex items-center justify-center text-black text-2xl font-bold border-2 border-white rotate-12">⟐</div>
-                <div>
-                    <h1 class="retro-title text-3xl tracking-tighter neon-text">TESSERACT</h1>
-                    <p class="text-[10px] text-[#ff22cc] -mt-2 tracking-[4px]">NOMAD RENTALS</p>
-                </div>
-            </div>
-            
-            <div class="flex items-center gap-8 text-lg">
-                <a href="#" onclick="navigateTo('home')" class="hover:text-white transition-colors">HOME</a>
-                <a href="#" onclick="navigateTo('listings')" class="hover:text-white transition-colors">LISTINGS</a>
-                <a href="#" onclick="navigateTo('dimensions')" class="hover:text-white transition-colors">DIMENSIONS</a>
-                <a href="#" onclick="navigateTo('contact')" class="hover:text-white transition-colors">TRANSMIT</a>
-            </div>
+<body class="bg-[#0a0a1f] text-[#22ffcc] min-h-screen">
 
-            <div class="flex items-center gap-4">
-                <div class="px-4 py-1 bg-[#ff22cc]/10 border border-[#ff22cc] text-sm rounded-full flex items-center gap-2">
-                    <span class="w-2 h-2 bg-[#22ffcc] rounded-full animate-pulse"></span>
-                    47,291 NOMADS ONLINE
-                </div>
-                <button onclick="showRandomPortal()" 
-                        class="px-6 py-2 bg-transparent border-2 border-[#22ffcc] hover:bg-[#22ffcc] hover:text-black transition-all font-bold">
-                    OPEN PORTAL
-                </button>
-            </div>
+    <!-- HERO (same as before) -->
+    <section class="min-h-screen flex items-center justify-center relative star-bg pt-20">
+        <div class="max-w-5xl mx-auto text-center px-6">
+            <h1 class="text-7xl retro-title neon-text mb-6">TESSERACT NOMAD RENTALS</h1>
+            <p class="text-3xl text-[#aaffff]">Intergalactic Real Estate • Since 3026</p>
         </div>
-    </nav>
+    </section>
 
-    <!-- HERO -->
-    <section id="home" class="min-h-screen flex items-center justify-center relative star-bg pt-20">
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a1f]/70 to-[#0a0a
+    <!-- LISTINGS -->
+    <section class="max-w-7xl mx-auto px-6 py-16">
+        <h2 class="text-5xl retro-title mb-12 neon-text text-center">FEATURED PROPERTIES</h2>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+
+            <!-- Listing 1 -->
+            <div class="listing-card border border-[#22ffcc]/30 bg-black/60 p-6 rounded-xl">
+                <h3 class="text-2xl mb-2">Floating Cube Penthouse</h3>
+                <p class="text-[#ff22cc] mb-6">Cuboid Dimension • Sector 9</p>
+                
+                <div class="space-y-8">
+                    <!-- Outside -->
+                    <div>
+                        <p class="text-xs uppercase tracking-widest mb-2 text-[#ff22cc]">Exterior View</p>
+                        <div class="rounded-xl overflow-hidden border border-[#22ffcc]/50">
+                            <img src="https://grok.x.ai/generated-image/1" alt="Futuristic floating cube home" class="w-full h-64 object-cover">
+                        </div>
+                    </div>
+                    
+                    <!-- Interior Collage -->
+                    <div>
+                        <p class="text-xs uppercase tracking-widest mb-2 text-[#ff22cc]">Interior Rooms Collage</p>
+                        <div class="rounded-xl overflow-hidden border border-[#22ffcc]/50">
+                            <img src="https://grok.x.ai/generated-image/2" alt="Interior collage" class="w-full h-64 object-cover">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 flex justify-between items-center">
+                    <div>
+                        <span class="text-4xl font-bold">420 GC</span>
+                        <span class="text-sm">/ cycle</span>
+                    </div>
+                    <button onclick="alert('Offer transmitted into the quantum field!')" class="px-8 py-3 bg-[#22ffcc] text-black font-bold">TRANSMIT OFFER</button>
+                </div>
+            </div>
+
+            <!-- Listing 2 -->
+            <div class="listing-card border border-[#22ffcc]/30 bg-black/60 p-6 rounded-xl">
+                <h3 class="text-2xl mb-2">Magma Spire Stronghold</h3>
+                <p class="text-[#ff22cc] mb-6">Volcanic Planet • Hellion-7</p>
+                
+                <div class="space-y-8">
+                    <!-- Outside -->
+                    <div>
+                        <p class="text-xs uppercase tracking-widest mb-2 text-[#ff22cc]">Exterior View</p>
+                        <div class="rounded-xl overflow-hidden border border-[#22ffcc]/50">
+                            <img src="https://grok.x.ai/generated-image/3" alt="Scary magma stone home" class="w-full h-64 object-cover">
+                        </div>
+                    </div>
+                    
+                    <!-- Interior Collage -->
+                    <div>
+                        <p class="text-xs uppercase tracking-widest mb-2 text-[#ff22cc]">Interior Rooms Collage</p>
+                        <div class="rounded-xl overflow-hidden border border-[#22ffcc]/50">
+                            <img src="https://grok.x.ai/generated-image/4" alt="Interior collage" class="w-full h-64 object-cover">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 flex justify-between items-center">
+                    <div>
+                        <span class="text-4xl font-bold">666 GC</span>
+                        <span class="text-sm">/ cycle</span>
+                    </div>
+                    <button onclick="alert('Offer transmitted into the quantum field!')" class="px-8 py-3 bg-[#22ffcc] text-black font-bold">TRANSMIT OFFER</button>
+                </div>
+            </div>
+
+            <!-- Listing 3 -->
+            <div class="listing-card border border-[#22ffcc]/30 bg-black/60 p-6 rounded-xl">
+                <h3 class="text-2xl mb-2">Abyssal Crystal Palace</h3>
+                <p class="text-[#ff22cc] mb-6">Neptune Sub-ocean • Depth 14km</p>
+                
+                <div class="space-y-8">
+                    <!-- Outside -->
+                    <div>
+                        <p class="text-xs uppercase tracking-widest mb-2 text-[#ff22cc]">Exterior View</p>
+                        <div class="rounded-xl overflow-hidden border border-[#22ffcc]/50">
+                            <img src="https://grok.x.ai/generated-image/5" alt="Underwater home" class="w-full h-64 object-cover">
+                        </div>
+                    </div>
+                    
+                    <!-- Interior Collage -->
+                    <div>
+                        <p class="text-xs uppercase tracking-widest mb-2 text-[#ff22cc]">Interior Rooms Collage</p>
+                        <div class="rounded-xl overflow-hidden border border-[#22ffcc]/50">
+                            <img src="https://grok.x.ai/generated-image/6" alt="Interior collage" class="w-full h-64 object-cover">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 flex justify-between items-center">
+                    <div>
+                        <span class="text-4xl font-bold">890 GC</span>
+                        <span class="text-sm">/ cycle</span>
+                    </div>
+                    <button onclick="alert('Offer transmitted into the quantum field!')" class="px-8 py-3 bg-[#22ffcc] text-black font-bold">TRANSMIT OFFER</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>
